@@ -3,6 +3,9 @@
         "initializer_list": "cpp",
         "type_traits": "cpp",
         "xstring": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "map": "cpp",
+        "chrono": "cpp",
+        "utility": "cpp"
     }
 }
