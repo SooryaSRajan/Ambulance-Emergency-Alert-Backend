@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
     res.send("Server root node");
 });
 
+//TODO: Remove in deployment stage 
 app.get("/test", (req, res) => {
   res.sendFile(__dirname  + '/index.html');
 });
