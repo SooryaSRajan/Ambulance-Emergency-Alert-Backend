@@ -4,8 +4,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 const socket = require('../modules/SocketIO');
 
-function distance(lat1,
-    lat2, lon1, lon2) {
+function distance(lat1, lat2, lon1, lon2) {
 
     lon1 = lon1 * Math.PI / 180;
     lon2 = lon2 * Math.PI / 180;
@@ -55,9 +54,7 @@ router.post("/", (req, res) => {
                     minimum_value = val;
                     user_id = value.uid
                 }
-                console.log('====================================');
                 console.log(value.latitude, latitude, value.longitude, longitude);
-                console.log('====================================');
             });
 
             if (minimum_value != 999999) {
