@@ -4,6 +4,7 @@ const receiveCoordinatesRoute = require("./routes/ReceiveCoordinatesRoute");
 const middlewareToken = require("./middleware/ValidateToken");
 const socket = require('./modules/SocketIO');
 const express = require('express');
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const app = express();
 const http = require('http');
@@ -30,6 +31,19 @@ app.get("/test", (req, res) => {
 app.use("/bcrypt", GenerateBcrypt); //TODO: Remove in deployment stage 
 app.use("/get_jwt", GenerateJWT)
 app.use("/coordinates", middlewareToken, receiveCoordinatesRoute)
+
+const csvWriter = createCsvWriter({
+  path: 'data.csv',
+  header: [
+      { id: 'uid', title: 'uid' },
+      { id: 'latitude', title: 'latitude' },
+      { id: 'longitude', title: 'longitude' },
+  ]
+});
+
+csvWriter
+.writeRecords('')
+.then(() => console.log('CSV has been erased successfully'));
 
 socket.socketConnection(server)
 server.listen(PORT, () => {
