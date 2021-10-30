@@ -1,13 +1,13 @@
-const express = require('express');
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
-
 const GenerateBcrypt = require("./routes/GenerateBcrypt");
 const GenerateJWT = require("./routes/GenerateJWT");
 const receiveCoordinatesRoute = require("./routes/ReceiveCoordinatesRoute");
 const middlewareToken = require("./middleware/ValidateToken");
 const socket = require('./modules/SocketIO');
+const express = require('express');
+
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
 
 require('dotenv').config();
 
