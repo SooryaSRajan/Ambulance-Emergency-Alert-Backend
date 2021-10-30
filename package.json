@@ -1,14 +1,14 @@
 {
   "name": "ambulance-alert-system-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express server for processing emergency coordinates and sending location to online clients",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Soorya S Rajan",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
