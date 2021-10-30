@@ -7,6 +7,9 @@ require('dotenv').config();
 
 router.post("/", async (req, res) => {
 
+
+    if (req.body.password == null) res.status(401).send('Please attach password')
+
     const validateKey = await bcrypt.compare(
         req.body.password,
         process.env.BCRYPT_KEY
@@ -24,6 +27,7 @@ router.post("/", async (req, res) => {
             success: true,
             jwt: token
         }
+        res.send(response)
     }
 
     else {
@@ -31,8 +35,8 @@ router.post("/", async (req, res) => {
             success: false,
             message: 'Invalid credential to generate jwt'
         }
+        res.status(401).send(response)
     }
-    res.send(response)
 
 });
 
