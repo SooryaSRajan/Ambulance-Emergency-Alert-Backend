@@ -30,6 +30,12 @@ router.post("/", (req, res) => {
 
     latitude = req.body.latitude;
     longitude = req.body.longitude;
+
+    if(latitude == null || longitude == null) {
+        res.status(400).send('Please attach coordinates')
+        return;
+    }
+    
     data.splice(0, data.length);
 
     minimum_value = 999999

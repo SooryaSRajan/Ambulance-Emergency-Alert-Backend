@@ -8,7 +8,10 @@ require('dotenv').config();
 router.post("/", async (req, res) => {
 
 
-    if (req.body.password == null) res.status(401).send('Please attach password')
+    if (req.body.password == null){
+        res.status(401).send('Please attach password')
+        return;
+    } 
 
     const validateKey = await bcrypt.compare(
         req.body.password,
@@ -28,6 +31,7 @@ router.post("/", async (req, res) => {
             jwt: token
         }
         res.send(response)
+        return;
     }
 
     else {
